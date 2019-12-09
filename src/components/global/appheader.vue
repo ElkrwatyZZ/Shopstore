@@ -32,8 +32,8 @@
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             <b-collapse id="nav-collapse" is-nav>
               <b-navbar-nav>
-                <span class="ship" @click="moveeg"  id="ship" :key="arr.words" v-for="arr in array">ship to {{arr.words}}</span>
-                <b-nav-item-dropdown  text=""   left class="change image shipnav" data-id="22">
+                <!--<span class="ship" @click="moveeg"  id="ship" :key="arr.words" v-for="arr in array">ship to {{arr.words}}</span>-->
+                <b-nav-item-dropdown  text=""   left class="change image shipnav">
                   <b-dropdown-item
                     class="change"
                     @click="testcontaryEgy"
@@ -121,14 +121,6 @@ export default {
         this.array.push({ words: this.UAE, done: true, UA:true });
       }
     },
-    moveeg: function() {
-     this.array.forEach(e => {
-       if(e.words == 'egypt'){  
-          let valeg=event.target.getAttribute("data-id");
-          console.log(valeg); 
-       }
-     });
-    }
   }
 };
 </script>
@@ -143,10 +135,16 @@ export default {
   }
 
   .container {
-    max-width: 100%;
-    background-color: #feee00 !important;
+    //max-width: 100%;
+    .navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute;
+    top: 24px;
+    left: -61px;
+    }
+
+    background-color: #e26df6 !important;
     position: relative;
-    .country{
+    .country{ 
       margin-right:1%;
     }
     .ship{
@@ -164,7 +162,7 @@ export default {
       margin: 0 10% !important;
       max-width: 70%;
       .bg-info {
-        background-color: #feee00 !important;
+        background-color: #e26df6 !important;
       }
       .words {
         font-size: 20px;
