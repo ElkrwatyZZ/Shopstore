@@ -1,16 +1,19 @@
 <template>
   <div id="app">
     <appheader />
+    <serchandsingin />
     <router-view />
   </div>
 </template>
 
 <script>
 import appheader from '../src/components/global/appheader'
+import serchandsingin from '../src/components/global/serchandsingin'
 export default {
   name: 'app',
   components: {
-    appheader
+    appheader,
+    serchandsingin
   }
 }
 </script>

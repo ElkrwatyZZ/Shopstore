@@ -4,7 +4,7 @@
       <div class="col-12 text-center">
         <div class="c">
           <b-navbar toggleable="md" type="dark" variant="info">
-            <b-navbar-brand href="#" :key="arr.words" v-for="arr in array">
+            <b-navbar-brand class="country" href="#" :key="arr.words" v-for="arr in array">
               {{ arr.words }} </b-navbar-brand
             >|
               <img
@@ -12,6 +12,7 @@
               class="eg"
               src="../../../img/eg.jpg"
             />
+           <!-- <iframe src="https://www.youtube.com/watch?v=npnp--SSx_8" width="600px" height="600px"/>-->
               <img
               v-if="array[0].eg== false"
               class="eg"
@@ -31,8 +32,8 @@
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             <b-collapse id="nav-collapse" is-nav>
               <b-navbar-nav>
-                <span class="ship" :v-if="moveeg" id="ship" :key="arr.words" v-for="arr in array">ship to {{arr.words}}</span>
-                <b-nav-item-dropdown  text=""  left class="change image shipnav">
+                <span class="ship" @click="moveeg"  id="ship" :key="arr.words" v-for="arr in array">ship to {{arr.words}}</span>
+                <b-nav-item-dropdown  text=""   left class="change image shipnav" data-id="22">
                   <b-dropdown-item
                     class="change"
                     @click="testcontaryEgy"
@@ -122,9 +123,9 @@ export default {
     },
     moveeg: function() {
      this.array.forEach(e => {
-       if(e.words == 'egypt'){
-         let move = document.getElementById('ship');
-         move.style.right="80rem";
+       if(e.words == 'egypt'){  
+          let valeg=event.target.getAttribute("data-id");
+          console.log(valeg); 
        }
      });
     }
@@ -145,6 +146,9 @@ export default {
     max-width: 100%;
     background-color: #feee00 !important;
     position: relative;
+    .country{
+      margin-right:1%;
+    }
     .ship{
       position:absolute;
       bottom:.9rem;
@@ -153,7 +157,7 @@ export default {
     .shipnav{
       position:absolute;
       top:50%;
-      right:91.2%;
+      right:92.6%;
     }
     .col-12 {
       padding: 0 !important;
@@ -170,6 +174,7 @@ export default {
       }
       a {
         color: black !important;
+        
       }
       .ml-auto {
         a {
