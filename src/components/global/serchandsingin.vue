@@ -5,11 +5,8 @@
         <div>
           <b-navbar toggleable="lg" type="dark" variant="info">
             <i class="fas fa-space-shuttle" fa-lg style="color:#FFC107;"></i>
-
             <b-navbar-brand href="#">Spatium</b-navbar-brand>
-
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
             <b-collapse id="nav-collapse" is-nav>
               <!-- Right aligned nav items -->
               <b-navbar-nav class="ml-auto">
@@ -26,6 +23,7 @@
                   <!-- Using 'button-content' slot -->
                   <template v-slot:button-content>
                     <em>SignIn & or SignUp</em>
+                   
                   </template>
                   <b-dropdown-item class="ret"
                     >Returning Customer</b-dropdown-item
