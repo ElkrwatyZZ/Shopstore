@@ -4,26 +4,26 @@
       <div class="col-12 text-center">
         <div>
           <b-navbar toggleable="lg" type="dark" variant="info">
-            <i class="fas fa-space-shuttle" fa-lg style="color:#FFC107;"></i>
+            <i class="fas fa-space-shuttle" fa-lg style="color:#FFC107;"></i> 
             <b-navbar-brand href="#">Spatium</b-navbar-brand>
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             <b-collapse id="nav-collapse" is-nav>
               <!-- Right aligned nav items -->
               <b-navbar-nav class="ml-auto">
                 <b-nav-form>
-                  <b-form-input
+                  <b-form-input 
                     size="sm"
                     class="mr-sm-2"
                     placeholder="Search"
                   ></b-form-input>
                   <i class="fas fa-search"></i>
                 </b-nav-form>
+               <form action="" method="post"></form>
 
                 <b-nav-item-dropdown left>
                   <!-- Using 'button-content' slot -->
                   <template v-slot:button-content>
-                    <em>SignIn & or SignUp</em>
-                   
+                    <em id="skew">SignIn & or SignUp</em>
                   </template>
                   <b-dropdown-item class="ret"
                     >Returning Customer</b-dropdown-item
@@ -46,13 +46,29 @@
 
 <script>
 export default {
-  name: "serchandsingin"
+  name: "serchandsingin",
+  methods : {
+    translat2D: () => {
+      let translate=document.getElementById('skew');
+      if(translate.click){
+       translate.style.transform="skew(20deg,40deg)";
+       console.log('done')
+      }
+      else{
+        translate.style.transform="skew(20deg,40deg)";
+        console.log('done')
+      }
+    }
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .container {
   background-color: #e26df6 !important;
+  .navbar-dark .navbar-brand{
+     filter: drop-shadow(2px 4px 6px rgb(246, 97, 38));
+  }
   .bg-info {
     background-color: #e26df6 !important;
   }
@@ -60,10 +76,12 @@ export default {
     .ml-auto,
     .mx-auto {
       margin-left: 6% !important;
+     // transform: skew()
     }
     .fa-space-shuttle {
       position: absolute;
-      left: -0.7%;
+     $left: -0.7%;
+     left:$left;
       top: 40%;
     }
     @media (min-width: 576px) {
